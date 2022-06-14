@@ -26,6 +26,9 @@
         }
       }
     },
+    "admin":{
+      "executor": ""
+    },
     "serve": {
       "executor": "@nrwl/node:node",
       "options": {
