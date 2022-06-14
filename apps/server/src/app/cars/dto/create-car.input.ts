@@ -1,4 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
+import { CarType } from '../../car-types/entities/car-type.entity';
 
 @InputType()
 export class CreateCarInput {
@@ -8,6 +9,6 @@ export class CreateCarInput {
   @Field()
   color:string;
 
-  @Field()
-  car_type:string;
+  @Field(type => CarType, { nullable: true })
+  car_type: CarType;
 }

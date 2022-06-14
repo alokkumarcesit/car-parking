@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 
 export enum UserRole{
@@ -50,4 +50,14 @@ export class User {
   @Field()
   @Column({default:true})
   isActive:boolean;
+
+  @Field()
+  @Column()
+  @CreateDateColumn()
+  created_at: Date;
+  
+  @Field()
+  @Column()
+  @UpdateDateColumn()
+  updated_at: Date;
 }

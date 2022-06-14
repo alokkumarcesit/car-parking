@@ -10,6 +10,12 @@ import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
 import { CarsModule } from './cars/cars.module';
 import { Car } from './cars/entities/car.entity';
+import { ParkingsModule } from './parkings/parkings.module';
+import { CarTypesModule } from './car-types/car-types.module';
+import { ParkingFeesModule } from './parking-fees/parking-fees.module';
+import { CarType } from './car-types/entities/car-type.entity';
+import { ParkingFee } from './parking-fees/entities/parking-fee.entity';
+import { Parking } from './parkings/entities/parking.entity';
 
 @Module({
   imports: [GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -23,11 +29,14 @@ import { Car } from './cars/entities/car.entity';
     username: 'postgres',
     password: 'postgres',
     database: 'car_parking',
-    entities: [User, Car],
+    entities: [User, Car, CarType, ParkingFee, Parking],
     synchronize: true,
   }),
   UsersModule,
   CarsModule,
+  ParkingsModule,
+  CarTypesModule,
+  ParkingFeesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
