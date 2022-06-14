@@ -1,8 +1,8 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@ObjectType()
 @Entity("cartypes")
+@ObjectType()
 export class CarType {
   @PrimaryGeneratedColumn()
   @Field()
@@ -12,12 +12,12 @@ export class CarType {
   @Field()
   type:string;
   
-  @Field()
+  @Field({nullable:true})
   @Column()
   @CreateDateColumn()
   created_at: Date;
   
-  @Field()
+  @Field({nullable:true})
   @Column()
   @UpdateDateColumn()
   updated_at: Date;

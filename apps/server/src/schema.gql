@@ -9,28 +9,48 @@ type User {
   role: String!
   phone: Float
   isActive: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
 }
 
-type CarType {
-  id: Float!
-  type: String!
-}
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Car {
   id: Float!
   vehical_number: String!
   color: String!
-  car_type: String!
+  car_type: String
+  created_at: DateTime!
+  updated_at: DateTime!
 }
 
 type Parking {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  id: Float!
+  locationCode: String!
+  location_details: String!
+  lotSize: Float!
+  owners: User!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CarType {
+  id: Float!
+  type: String!
+  created_at: DateTime
+  updated_at: DateTime
 }
 
 type ParkingFee {
   id: Float!
   car_type: CarType!
+  first_charge: Float!
+  second_charge: Float!
+  created_at: DateTime!
+  updated_at: DateTime!
 }
 
 type Query {

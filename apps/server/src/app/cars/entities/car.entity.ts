@@ -17,10 +17,9 @@ export class Car {
   @Field()
   color:string;
 
-  @Field(type => CarType, { nullable: true })
-  @OneToOne(()=>CarType)
-  @JoinColumn()
-  car_type:CarType;
+  @Field( { nullable: true })
+  @Column()
+  car_type:string;
 
   @Field()
   @Column()
