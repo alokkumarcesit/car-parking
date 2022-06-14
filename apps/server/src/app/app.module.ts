@@ -8,6 +8,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
+import { CarsModule } from './cars/cars.module';
+import { Car } from './cars/entities/car.entity';
 
 @Module({
   imports: [GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -21,10 +23,11 @@ import { UsersModule } from './users/users.module';
     username: 'postgres',
     password: 'postgres',
     database: 'car_parking',
-    entities: [User],
+    entities: [User, Car],
     synchronize: true,
   }),
   UsersModule,
+  CarsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

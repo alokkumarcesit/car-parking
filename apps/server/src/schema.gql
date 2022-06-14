@@ -11,14 +11,24 @@ type User {
   isActive: Boolean!
 }
 
+type Car {
+  id: Float!
+  vehical_number: String!
+  color: String!
+  car_type: String!
+}
+
 type Query {
   users: [User!]!
   user(id: Int!): User!
+  cars: [Car!]!
+  car(id: Int!): Car!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   update(email: String!, updateUserInput: UpdateUserInput!): User!
+  createCar(createCarInput: CreateCarInput!): Car!
 }
 
 input CreateUserInput {
@@ -34,4 +44,10 @@ input UpdateUserInput {
   email: String
   password: String
   id: Int
+}
+
+input CreateCarInput {
+  vehical_number: String!
+  color: String!
+  car_type: String!
 }
