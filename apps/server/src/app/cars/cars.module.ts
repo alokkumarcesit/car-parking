@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Car } from './entities/car.entity';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([Car])],
-  providers: [CarsResolver, CarsService]
+  imports: [TypeOrmModule.forFeature([Car])],
+  providers: [CarsResolver, CarsService],
 })
 export class CarsModule {}

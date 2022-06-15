@@ -53,6 +53,12 @@ type ParkingFee {
   updated_at: DateTime!
 }
 
+type SearchResult {
+  owner: [User!]
+  slot: [Parking!]
+  car: [Car!]
+}
+
 type Query {
   users: [User!]!
   user(id: Int!): User!
@@ -64,6 +70,18 @@ type Query {
   carType(id: Int!): CarType!
   parkingFees: [ParkingFee!]!
   parkingFee(id: Int!): ParkingFee!
+  search(searchInput: SearchInput!): [SearchResult!]!
+}
+
+input SearchInput {
+  owner_name: String
+  owner_role: String
+  owner_phone: Float
+  vehical_number: String
+  color: String
+  car_type: String
+  locationCode: String
+  lotSize: Float
 }
 
 type Mutation {

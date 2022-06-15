@@ -16,6 +16,8 @@ import { ParkingFeesModule } from './parking-fees/parking-fees.module';
 import { CarType } from './car-types/entities/car-type.entity';
 import { ParkingFee } from './parking-fees/entities/parking-fee.entity';
 import { Parking } from './parkings/entities/parking.entity';
+import { SearchModule } from './search/search.module';
+import { Search } from './search/entities/search.entity';
 
 @Module({
   imports: [GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -29,7 +31,7 @@ import { Parking } from './parkings/entities/parking.entity';
     username: 'postgres',
     password: 'postgres',
     database: 'car_parking',
-    entities: [User, Car, CarType, ParkingFee, Parking],
+    entities: [User, Car, CarType, ParkingFee, Parking, Search],
     synchronize: true,
   }),
   UsersModule,
@@ -37,6 +39,7 @@ import { Parking } from './parkings/entities/parking.entity';
   ParkingsModule,
   CarTypesModule,
   ParkingFeesModule,
+  SearchModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,31 +1,36 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import { CarType } from '../../car-types/entities/car-type.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@ObjectType()
-@Entity("cars")
+@ObjectType('Car')
+@Entity('cars')
 export class Car {
   @PrimaryGeneratedColumn()
   @Field()
-  id:number
+  id: number;
 
-  @Column("text")
+  @Column('text')
   @Field()
-  vehical_number:string
+  vehical_number: string;
 
   @Column()
   @Field()
-  color:string;
+  color: string;
 
-  @Field( { nullable: true })
+  @Field({ nullable: true })
   @Column()
-  car_type:string;
+  car_type: string;
 
   @Field()
   @Column()
   @CreateDateColumn()
   created_at: Date;
-  
+
   @Field()
   @Column()
   @UpdateDateColumn()
