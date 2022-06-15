@@ -33,7 +33,7 @@ export class SearchService {
     }
     if (
       searchInput.owner_name ||
-      searchInput.owner_phone ||
+      searchInput.owner_role ||
       searchInput.owner_phone
     ) {
       const owner = await this.userRepo.find({
@@ -43,8 +43,8 @@ export class SearchService {
           { phone: searchInput.owner_phone },
         ],
       });
-      console.log(owner.flat());
-      result.owner = owner;
+
+      result.owner = owner.map((data) => ({ ...data } as User));
     }
     if (searchInput.locationCode || searchInput.lotSize) {
       const slot = await this.parkingRepo.findBy({
@@ -53,7 +53,6 @@ export class SearchService {
       });
       result.slot = slot;
     }
-    console.log(result);
     return result;
   }
 }

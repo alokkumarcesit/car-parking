@@ -70,7 +70,7 @@ type Query {
   carType(id: Int!): CarType!
   parkingFees: [ParkingFee!]!
   parkingFee(id: Int!): ParkingFee!
-  search(searchInput: SearchInput!): [SearchResult!]!
+  search(searchInput: SearchInput!): SearchResult!
 }
 
 input SearchInput {

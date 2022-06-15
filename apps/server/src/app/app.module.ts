@@ -20,26 +20,28 @@ import { SearchModule } from './search/search.module';
 import { Search } from './search/entities/search.entity';
 
 @Module({
-  imports: [GraphQLModule.forRoot<ApolloDriverConfig>({
-    driver: ApolloDriver,
-    autoSchemaFile: join(process.cwd(), 'apps/server/src/schema.gql')
-  }),
-  TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'postgres',
-    database: 'car_parking',
-    entities: [User, Car, CarType, ParkingFee, Parking, Search],
-    synchronize: true,
-  }),
-  UsersModule,
-  CarsModule,
-  ParkingsModule,
-  CarTypesModule,
-  ParkingFeesModule,
-  SearchModule,
+  imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'apps/server/src/schema.gql'),
+    }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'car_parking',
+      entities: [User, Car, CarType, ParkingFee, Parking, Search],
+      synchronize: true,
+      logging: true,
+    }),
+    UsersModule,
+    CarsModule,
+    ParkingsModule,
+    CarTypesModule,
+    ParkingFeesModule,
+    SearchModule,
   ],
   controllers: [AppController],
   providers: [AppService],

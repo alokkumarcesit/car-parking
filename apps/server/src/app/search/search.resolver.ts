@@ -8,7 +8,7 @@ import { SearchResult } from './dto/search-result.output';
 export class SearchResolver {
   constructor(private readonly searchService: SearchService) {}
 
-  @Query(() => [SearchResult], { name: 'search' })
+  @Query(() => SearchResult, { name: 'search' })
   findAll(@Args('searchInput') searchInput: SearchInput) {
     return this.searchService.findAll(searchInput);
   }
