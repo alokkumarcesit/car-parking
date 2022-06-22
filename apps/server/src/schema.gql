@@ -117,7 +117,7 @@ input CreateUserInput {
   email: String!
 
   """Password of the user"""
-  password: String
+  password: String!
   role: String
 }
 

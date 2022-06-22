@@ -15,7 +15,7 @@ export class CreateUserInput {
   email: string;
 
   @MinLength(6)
-  @Field({ nullable: true, description: 'Password of the user' })
+  @Field({ description: 'Password of the user' })
   password: string;
 
   @Field({ nullable: true })

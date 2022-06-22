@@ -4,7 +4,7 @@ import { UsersService } from '../users/users.service';
 import { LoginResult, UserLoginInput } from './dto/auth.input';
 
 import * as bcrypt from 'bcrypt';
-import { User } from '../users/entities/user.entity';
+import { User, UserRole } from '../users/entities/user.entity';
 
 export interface JwtPayload {
   email: string;
@@ -22,12 +22,13 @@ export class AuthService {
   async validateUserByPassword(
     login: UserLoginInput
   ): Promise<LoginResult | undefined> {
-    let user;
+    let user: User;
     if (login.email) {
       user = await this._userService.findOneByEmail(login.email);
     }
 
-    if (user?.isActive === false) return undefined;
+    if (user?.isActive === false || user?.role !== UserRole.ADMIN)
+      return undefined;
     try {
       if (await bcrypt.compare(login.password, user.password)) {
         const token = this.createJWT(user).token;
