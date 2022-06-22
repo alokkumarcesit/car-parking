@@ -18,6 +18,7 @@ import { ParkingFee } from './parking-fees/entities/parking-fee.entity';
 import { Parking } from './parkings/entities/parking.entity';
 import { SearchModule } from './search/search.module';
 import { Search } from './search/entities/search.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { Search } from './search/entities/search.entity';
     CarTypesModule,
     ParkingFeesModule,
     SearchModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
