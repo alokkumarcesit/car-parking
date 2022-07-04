@@ -19,6 +19,7 @@ import { Parking } from './parkings/entities/parking.entity';
 import { SearchModule } from './search/search.module';
 import { Search } from './search/entities/search.entity';
 import { AuthModule } from './auth/auth.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { AuthModule } from './auth/auth.module';
     ParkingFeesModule,
     SearchModule,
     AuthModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
